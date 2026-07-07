@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="es-SV">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contenido Multimedia | Alexander Hernandez</title>
+
+    <link
+      rel="canonical"
+      href="https://alexander404-san.github.io/Proyecto-CSS/"
+    />
+
+    <meta
+      name="description"
+      content="Ejemplo de uso de imágenes responsivas, video y audio en HTML."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+
+    <!-- diseño general -->
+    <meta name="theme-color" content="#2563eb" />
+    <!-- <meta name="color-scheme" content="light dark" /> -->
+    <link rel="stylesheet" href="../assets/css/Multimedia/styles.css" />
+  </head>
+  <body id="top">
+    <header>
+      <h1>Contenido Multimedia</h1>
+      <p>Imágenes responsivas, video y audio en HTML</p>
+
+      <nav>
+        <a href="../index.html">← Volver al portafolio</a>
+      </nav>
+    </header>
+    <main>
+      <section id="intro">
+        <h2>Galería Multimedia</h2>
+        <p>
+          Ejemplo de implementación de contenido multimedia optimizado para
+          distintos dispositivos.
+        </p>
+      </section>
+
+      <section id="imagenes">
+        <h2>Imágenes responsivas</h2>
+
+        <p>
+          En este ejemplo se utilizan múltiples versiones de una misma imagen
+          para adaptarse a diferentes tamaños de pantalla. Esto permite reducir
+          el consumo de datos en dispositivos móviles y mejorar el rendimiento
+          de carga.
+        </p>
+
+        <figure>
+          <!-- width="800"
+            height="500"
+            no lo pondremos aun por falta de css -->
+          <img
+            src="../assets/img/responsive/imagen-800x500.jpg"
+            srcset="
+              ../assets/img/responsive/imagen-400x250.jpg   400w,
+              ../assets/img/responsive/imagen-800x500.jpg   800w,
+              ../assets/img/responsive/imagen-1200x750.jpg 1200w
+            "
+            sizes="(max-width: 600px) 100vw,
+             (max-width: 1024px) 80vw,
+             800px"
+            alt="Ejemplo de imagen responsiva optimizada"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <figcaption>
+            El navegador selecciona automáticamente la imagen más adecuada según
+            el tamaño de pantalla y la resolución del dispositivo.
+          </figcaption>
+        </figure>
+
+        <p>
+          <strong>¿Qué está ocurriendo?</strong> El atributo
+          <code>srcset</code> define múltiples versiones de la misma imagen en
+          diferentes resoluciones, mientras que <code>sizes</code> indica cuánto
+          espacio ocupará la imagen en pantalla. Con esta información, el
+          navegador decide qué archivo descargar, optimizando el rendimiento y
+          evitando el uso innecesario de ancho de banda.
+        </p>
+
+        <p>
+          Para este ejemplo se utilizaron tres versiones de la imagen: 400px
+          para dispositivos móviles, 800px para tablets y 1200px para pantallas
+          de escritorio, manteniendo un peso optimizado entre 50KB y 400KB según
+          el caso.
+        </p>
+      </section>
+
+      <section id="picture">
+        <h2>Adaptación de imágenes con picture</h2>
+
+        <p>
+          El elemento <code>picture</code> permite utilizar diferentes imágenes
+          según el tamaño de pantalla, cambiando no solo la resolución sino
+          también la composición visual (art direction).
+        </p>
+
+        <figure>
+          <picture>
+            <!-- 📱 Móvil -->
+            <source
+              media="(max-width: 600px)"
+              srcset="../assets/img/responsive/imagen-mobile-2a3-400x600.jpg"
+            />
+
+            <!-- 📲 Tablet -->
+            <source
+              media="(max-width: 1024px)"
+              srcset="../assets/img/responsive/imagen-tablet-4a3-800x600.jpg"
+            />
+
+            <!-- 💻 Desktop (fallback) -->
+            <img
+              src="../assets/img/responsive/imagen-desktop-16a9-1200x675.jpg"
+              alt="Ejemplo de imagen adaptada según dispositivo"
+              width="1200"
+              height="675"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+
+          <figcaption>
+            La imagen cambia según el dispositivo, mostrando diferentes
+            encuadres para mejorar la experiencia visual.
+          </figcaption>
+        </figure>
+
+        <p>
+          <strong>¿Qué está ocurriendo?</strong> El navegador evalúa cada
+          condición definida en los elementos <code>source</code> y selecciona
+          la primera que se cumpla. De esta forma, es posible mostrar una imagen
+          optimizada para móviles (por ejemplo, vertical) y otra diferente para
+          escritorio (horizontal).
+        </p>
+
+        <h3>Diferencia entre srcset y picture</h3>
+        <p>
+          A diferencia del uso de <code>srcset</code>, donde el navegador
+          selecciona automáticamente la mejor resolución de una misma imagen, el
+          elemento <code>picture</code> permite definir múltiples imágenes
+          completamente diferentes según el contexto. Esto resulta útil cuando
+          se requiere adaptar la composición visual (por ejemplo, una imagen
+          vertical en móvil y horizontal en escritorio), mejorando la
+          experiencia del usuario.
+        </p>
+      </section>
+
+      <section id="video">
+        <h2>Integración de video</h2>
+
+        <p>
+          El elemento <code>video</code> permite integrar contenido audiovisual
+          en la web. Es importante optimizar el formato, tamaño y carga del
+          archivo para no afectar el rendimiento del sitio.
+        </p>
+
+        <figure>
+          <video
+            controls
+            width="800"
+            height="450"
+            preload="metadata"
+            poster="../assets/img/video-preview.jpg"
+          >
+            <source src="../assets/video/video-demo.webm" type="video/webm" />
+            <source src="../assets/video/video-demo.mp4" type="video/mp4" />
+
+            <track
+              src="subtitulos_es.vtt"
+              kind="subtitles"
+              srclang="es"
+              label="Español"
+            />
+
+            Tu navegador no soporta video HTML5.
+          </video>
+
+          <figcaption>
+            Video optimizado con múltiples formatos para compatibilidad entre
+            navegadores.
+          </figcaption>
+        </figure>
+
+        <p>
+          <strong>¿Qué está ocurriendo?</strong> El navegador evalúa los
+          formatos disponibles y reproduce el primero que soporte. Se utiliza
+          <code>preload="metadata"</code> para no generar la carga completa del
+          video al iniciar la página, mejorando el rendimiento inicial y
+          reduciendo el consumo de datos innecesario..
+        </p>
+      </section>
+
+      <section id="audio">
+        <h2>Integración de audio</h2>
+
+        <p>
+          El elemento <code>audio</code> permite reproducir sonidos o música en
+          una página web, optimizando el formato para reducir el tamaño del
+          archivo.
+        </p>
+
+        <figure>
+          <audio controls preload="none">
+            <source src="../assets/audio/audio-demo.ogg" type="audio/ogg" />
+            <source src="../assets/audio/audio-demo.mp3" type="audio/mpeg" />
+
+            Tu navegador no soporta audio HTML5.
+          </audio>
+
+          <figcaption>
+            Audio optimizado con diferentes formatos para compatibilidad.
+          </figcaption>
+        </figure>
+
+        <p>
+          <strong>¿Qué está ocurriendo?</strong> El navegador selecciona el
+          formato de audio compatible y solo carga el archivo cuando el usuario
+          decide reproducirlo, gracias a <code>preload="none"</code>.
+        </p>
+      </section>
+
+      <section id="video-embed">
+        <h2>Video embebido desde YouTube</h2>
+
+        <p>
+          Además de usar el elemento <code>video</code>, en proyectos reales es
+          común integrar contenido multimedia desde plataformas externas como
+          YouTube. Esto permite reducir el consumo de recursos del servidor y
+          aprovechar sistemas de streaming optimizados.
+        </p>
+
+        <figure>
+          <iframe
+            width="800"
+            height="450"
+            src="https://www.youtube.com/embed/nIeC7EVdXCA?si=5E0SFglnikfqSlSM&start=8"
+            title="YouTube video player"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+
+          <figcaption>
+            Video integrado mediante iframe, utilizando la plataforma de
+            YouTube.
+          </figcaption>
+        </figure>
+
+        <p>
+          <strong>¿Qué está ocurriendo?</strong> El video no se carga desde el
+          servidor del sitio, sino desde YouTube. Esto permite ofrecer
+          reproducción adaptativa (calidad automática según la conexión del
+          usuario), reduciendo el peso de la página y mejorando el rendimiento
+          general.
+        </p>
+      </section>
+
+      <section id="buenas-practicas">
+        <h2>Buenas prácticas en contenido multimedia</h2>
+
+        <!-- IMÁGENES -->
+        <article>
+          <h3>Formatos de imagen</h3>
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Formato</th>
+                <th>Uso recomendado</th>
+                <th>Ventajas</th>
+                <th>Desventajas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>JPG / JPEG</td>
+                <td>Fotografías</td>
+                <td>Alta compatibilidad, buen equilibrio calidad/peso</td>
+                <td>Pérdida de calidad (compresión)</td>
+              </tr>
+              <tr>
+                <td>WEBP</td>
+                <td>Web moderna (imágenes generales)</td>
+                <td>Mejor compresión, menor peso</td>
+                <td>No soportado en navegadores muy antiguos</td>
+              </tr>
+              <tr>
+                <td>PNG</td>
+                <td>Imágenes con transparencia</td>
+                <td>Sin pérdida de calidad</td>
+                <td>Archivos más pesados</td>
+              </tr>
+              <tr>
+                <td>SVG</td>
+                <td>Íconos y gráficos</td>
+                <td>Escalable sin perder calidad</td>
+                <td>No apto para fotografías</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <!-- FORMATOS DE VIDEO -->
+        <article>
+          <h3>Formatos de video</h3>
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Formato</th>
+                <th>Uso recomendado</th>
+                <th>Ventajas</th>
+                <th>Desventajas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MP4 (H.264)</td>
+                <td>Uso general en web</td>
+                <td>Compatibilidad universal</td>
+                <td>Compresión menor que WebM</td>
+              </tr>
+              <tr>
+                <td>WebM</td>
+                <td>Optimización web moderna</td>
+                <td>Mejor compresión, menor peso</td>
+                <td>Compatibilidad ligeramente menor</td>
+              </tr>
+              <tr>
+                <td>Ogg (Theora)</td>
+                <td>Alternativa libre</td>
+                <td>Software libre, buena calidad</td>
+                <td>Poco soporte en la práctica moderna</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <!-- FORMATOS DE AUDIO -->
+        <article>
+          <h3>Formatos de audio</h3>
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Formato</th>
+                <th>Uso recomendado</th>
+                <th>Ventajas</th>
+                <th>Desventajas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MP3</td>
+                <td>Uso general</td>
+                <td>Alta compatibilidad</td>
+                <td>Mayor tamaño que OGG</td>
+              </tr>
+              <tr>
+                <td>OGG</td>
+                <td>Optimización web</td>
+                <td>Mejor compresión</td>
+                <td>Compatibilidad menor</td>
+              </tr>
+              <tr>
+                <td>WAV</td>
+                <td>Audio sin compresión</td>
+                <td>Alta calidad</td>
+                <td>Archivos muy pesados</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <!-- RESOLUCIONES -->
+        <article>
+          <h3>Resoluciones recomendadas</h3>
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Dispositivo</th>
+                <th>Rango de pantalla</th>
+                <th>Resolución sugerida</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Móvil</td>
+                <td>0px – 600px</td>
+                <td>~400px</td>
+              </tr>
+              <tr>
+                <td>Tablet</td>
+                <td>601px – 1024px</td>
+                <td>~800px</td>
+              </tr>
+              <tr>
+                <td>Desktop</td>
+                <td>1025px en adelante</td>
+                <td>~1200px</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <!-- PESOS IMAGENES -->
+        <article>
+          <h3>Peso recomendado de imágenes según uso</h3>
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Tipo de imagen</th>
+                <th>Peso ideal</th>
+                <th>Límite máximo</th>
+                <th>Formato recomendado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hero / Banner principal</td>
+                <td>100KB – 250KB</td>
+                <td>300KB</td>
+                <td>JPG / WEBP</td>
+              </tr>
+              <tr>
+                <td>Imágenes de contenido</td>
+                <td>50KB – 150KB</td>
+                <td>200KB</td>
+                <td>JPG / WEBP</td>
+              </tr>
+              <tr>
+                <td>Miniaturas (thumbnails)</td>
+                <td>10KB – 40KB</td>
+                <td>50KB</td>
+                <td>JPG / WEBP</td>
+              </tr>
+              <tr>
+                <td>Iconos / Logos</td>
+                <td>1KB – 10KB</td>
+                <td>20KB</td>
+                <td>SVG</td>
+              </tr>
+              <tr>
+                <td>Imágenes con transparencia</td>
+                <td>20KB – 100KB</td>
+                <td>150KB</td>
+                <td>PNG / WEBP</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <!-- PESOS VIDEOS -->
+
+        <article>
+          <h3>Peso recomendado de video según uso</h3>
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Tipo de video</th>
+                <th>Peso ideal</th>
+                <th>Límite máximo</th>
+                <th>Formato recomendado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hero / fondo (background video)</td>
+                <td>1MB – 3MB</td>
+                <td>5MB</td>
+                <td>MP4 (H.264) / WebM</td>
+              </tr>
+              <tr>
+                <td>Video informativo corto</td>
+                <td>2MB – 5MB</td>
+                <td>10MB</td>
+                <td>MP4</td>
+              </tr>
+              <tr>
+                <td>Video embebido (streaming)</td>
+                <td>No aplica</td>
+                <td>No aplica</td>
+                <td>YouTube / Vimeo</td>
+              </tr>
+              <tr>
+                <td>Preview / teaser</td>
+                <td>500KB – 2MB</td>
+                <td>3MB</td>
+                <td>MP4 / WebM</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <!-- PESOS AUDIO -->
+        <article>
+          <h3>Peso recomendado de audio según uso</h3>
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Tipo de audio</th>
+                <th>Peso ideal</th>
+                <th>Límite máximo</th>
+                <th>Formato recomendado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Efectos de sonido (UI)</td>
+                <td>10KB – 100KB</td>
+                <td>200KB</td>
+                <td>MP3 / OGG</td>
+              </tr>
+              <tr>
+                <td>Audio corto (notificación / clip)</td>
+                <td>100KB – 500KB</td>
+                <td>1MB</td>
+                <td>MP3</td>
+              </tr>
+              <tr>
+                <td>Música de fondo</td>
+                <td>500KB – 2MB</td>
+                <td>3MB</td>
+                <td>MP3 / OGG</td>
+              </tr>
+              <tr>
+                <td>Audio de alta calidad</td>
+                <td>2MB – 10MB</td>
+                <td>—</td>
+                <td>WAV</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <section id="conclusiones">
+        <h2>Conclusiones</h2>
+
+        <p>
+          Los valores presentados se basan en buenas prácticas de optimización
+          web utilizadas en la industria, orientadas a mejorar el rendimiento,
+          reducir el consumo de datos y optimizar métricas como Largest
+          Contentful Paint (LCP) y tiempo de carga inicial.
+        </p>
+
+        <p>
+          Aunque no existen estándares estrictos universales, estas
+          recomendaciones son ampliamente utilizadas en desarrollo web moderno
+          para lograr un equilibrio entre calidad visual y eficiencia.
+        </p>
+
+        <p>
+          La optimización del contenido multimedia contribuye a mejorar métricas
+          como Largest Contentful Paint (LCP), lo cual es considerado por los
+          motores de búsqueda como un factor de rendimiento. Aunque no es el
+          único elemento que influye en el posicionamiento SEO, sí forma parte
+          de las buenas prácticas que mejoran la experiencia del usuario y el
+          rendimiento general del sitio.
+        </p>
+      </section>
+
+      <a href="#top">↑ Volver al inicio</a>
+    </main>
+    <footer>
+      <hr />
+      <a href="../index.html">← Volver al portafolio</a>
+
+      <p>&copy; 2026 Alexander Hernandez. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>
