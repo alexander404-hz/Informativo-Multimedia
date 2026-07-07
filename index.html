@@ -16,13 +16,13 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" href="../favicon.ico" />
-    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
 
     <!-- diseño general -->
     <meta name="theme-color" content="#2563eb" />
     <!-- <meta name="color-scheme" content="light dark" /> -->
-    <link rel="stylesheet" href="../assets/css/Multimedia/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body id="top">
     <header>
@@ -30,7 +30,9 @@
       <p>Imágenes responsivas, video y audio en HTML</p>
 
       <nav>
-        <a href="../index.html">← Volver al portafolio</a>
+        <a href="https://alexander404-hz.github.io/Portafolio/"
+          >← Volver al portafolio</a
+        >
       </nav>
     </header>
     <main>
@@ -57,11 +59,11 @@
             height="500"
             no lo pondremos aun por falta de css -->
           <img
-            src="../assets/img/responsive/imagen-800x500.jpg"
+            src="assets/img/imagen-800x500.jpg"
             srcset="
-              ../assets/img/responsive/imagen-400x250.jpg   400w,
-              ../assets/img/responsive/imagen-800x500.jpg   800w,
-              ../assets/img/responsive/imagen-1200x750.jpg 1200w
+              assets/img/imagen-400x250.jpg   400w,
+              assets/img/imagen-800x500.jpg   800w,
+              assets/img/imagen-1200x750.jpg 1200w
             "
             sizes="(max-width: 600px) 100vw,
              (max-width: 1024px) 80vw,
@@ -108,18 +110,18 @@
             <!-- 📱 Móvil -->
             <source
               media="(max-width: 600px)"
-              srcset="../assets/img/responsive/imagen-mobile-2a3-400x600.jpg"
+              srcset="assets/img/imagen-mobile-2a3-400x600.jpg"
             />
 
             <!-- 📲 Tablet -->
             <source
               media="(max-width: 1024px)"
-              srcset="../assets/img/responsive/imagen-tablet-4a3-800x600.jpg"
+              srcset="assets/img/imagen-tablet-4a3-800x600.jpg"
             />
 
             <!-- 💻 Desktop (fallback) -->
             <img
-              src="../assets/img/responsive/imagen-desktop-16a9-1200x675.jpg"
+              src="assets/img/imagen-desktop-16a9-1200x675.jpg"
               alt="Ejemplo de imagen adaptada según dispositivo"
               width="1200"
               height="675"
@@ -169,10 +171,10 @@
             width="800"
             height="450"
             preload="metadata"
-            poster="../assets/img/video-preview.jpg"
+            poster="assets/img/video-preview.jpg"
           >
-            <source src="../assets/video/video-demo.webm" type="video/webm" />
-            <source src="../assets/video/video-demo.mp4" type="video/mp4" />
+            <source src="assets/video/video-demo.webm" type="video/webm" />
+            <source src="assets/video/video-demo.mp4" type="video/mp4" />
 
             <track
               src="subtitulos_es.vtt"
@@ -210,8 +212,8 @@
 
         <figure>
           <audio controls preload="none">
-            <source src="../assets/audio/audio-demo.ogg" type="audio/ogg" />
-            <source src="../assets/audio/audio-demo.mp3" type="audio/mpeg" />
+            <source src="assets/audio/audio-demo.ogg" type="audio/ogg" />
+            <source src="assets/audio/audio-demo.mp3" type="audio/mpeg" />
 
             Tu navegador no soporta audio HTML5.
           </audio>
@@ -585,7 +587,9 @@
     </main>
     <footer>
       <hr />
-      <a href="../index.html">← Volver al portafolio</a>
+      <a href="https://alexander404-hz.github.io/Portafolio/"
+        >← Volver al portafolio</a
+      >
 
       <p>&copy; 2026 Alexander Hernandez. Todos los derechos reservados.</p>
     </footer>
