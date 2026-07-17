@@ -4,7 +4,7 @@ Página informativa construida con **HTML5** y **CSS3** que documenta, con ejemp
 
 🔗 **Demo en vivo:** [alexander404-hz.github.io/Informativo-Multimedia](https://alexander404-hz.github.io/Informativo-Multimedia/)
 
-[![Vista previa del portafolio](assets/img/readme.png)](https://alexander404-hz.github.io/Informativo-Multimedia/)
+[![Vista previa](assets/img/readme.png)](https://alexander404-hz.github.io/Informativo-Multimedia/)
 
 ## ✨ Características
 
