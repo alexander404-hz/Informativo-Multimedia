@@ -73,7 +73,7 @@ Este proyecto no requiere instalación ni dependencias. Solo necesitas un navega
 
 ## 👤 Autor
 
-**Alexander Hernández**
+**Alexander Hz**
 Portafolio: [alexander404-hz.github.io/Portafolio](https://alexander404-hz.github.io/Portafolio/)
 
 ## 📄 Licencia
